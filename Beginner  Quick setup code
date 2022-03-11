@@ -1,0 +1,56 @@
+
+//---add the path in setting page---
+
+from pathlib import Path
+
+BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) #add on
+TEMPLATES_DIR = os.path.join(BASE_DIR2,'templates')
+STATIC_DIR = os.path.join(BASE_DIR2,'static')
+
+  'DIRS': [TEMPLATES_DIR],
+STATICFILES_DIRS =[STATIC_DIR,]
+
+//---database---
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASSWORD',
+        'HOST': 'localhost',                   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
+
+//adding the static file in html page
+
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+//--how to create Project in django
+
+$ django-admin startproject mysite  -- create project folder 
+
+$ python manage.py runserver   -- server run comment
+
+$ python manage.py runserver 8080 -- customised server port comment
+
+$ python -m django --version    -- check the django version
+
+//--how to create app in django
+
+$ python manage.py startapp polls   ---create app
+
+// migration the models concepts
+
+$ python manage.py migrate
+
+$ python manage.py makemigrations 
+
+//--Create the super admin
+
+$ python manage.py createsuperuser
+
+//link concept
+
+<li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
